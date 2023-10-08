@@ -1,7 +1,10 @@
-.container {
+.containerLoading {
     &>div {
+        display: flex;
+
+        width: 100vw;
+        height: 100vh;
+
         background-color: gray;
-        width: 200px;
-        height: 100px;
     }
 }

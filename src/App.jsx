@@ -8,14 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const localCart = localStorage.getItem("@PRODUCT");
 
-  //tornar visível o cart
   const [isVisible, setIsVisible] = useState(false);
-  //carrinho de compra
+
   const [cartShopping, setCartShopping] = useState(
     localCart ? JSON.parse(localCart) : []
   );
 
-  //adicionar compras
   const addCart = (productAdd) => {
     const hasCart = cartShopping.some((cart) => cart.id == productAdd.id);
 
@@ -26,7 +24,7 @@ function App() {
       toast.error(`${productAdd.name} já foi adicionado ao carrinho`);
     }
   }
-  //remover compras
+
   const removeCart = (cartId) => {
     const cartFiltered = cartShopping.filter(cart => cart.id !== cartId)
     setCartShopping(cartFiltered);
@@ -44,9 +42,20 @@ function App() {
 
   return (
     <>
-      <HomePage setIsVisible={setIsVisible} addCart={addCart} />
+      <HomePage setIsVisible={setIsVisible} addCart={addCart} cartShopping={cartShopping} />
       {isVisible ? <CartModal cartShopping={cartShopping} setIsVisible={setIsVisible} removeCart={removeCart} removeAllItemsFromCart={removeAllItemsFromCart} /> : null}
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   )
 }

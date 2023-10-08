@@ -16,6 +16,7 @@
     font-weight: bold;
 }
 
+
 .headline {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
@@ -26,10 +27,10 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
+}
 
-    &.b600 {
-        font-weight: 600;
-    }
+.b600 {
+    font-weight: 600;
 }
 
 .caption {
